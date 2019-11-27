@@ -1,8 +1,9 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
-// import Vue from "vue";
+
 
 // for vuex support
 import Vuex from 'vuex'
@@ -16,6 +17,8 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import {routes} from './routes';
+// end vue router
+
 
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
@@ -28,6 +31,7 @@ import { Form, HasError, AlertError } from 'vform'
 window.Form = Form;
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
+// end v form
 
 // for sweet alert2 message
 import Swal from 'sweetalert2'

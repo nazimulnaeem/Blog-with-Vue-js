@@ -1877,14 +1877,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "list",
   mounted: function mounted() {
-    this.$store.dispatch("allCategory");
+    this.$store.dispatch("allCategory"); // this.$store.getters.getCategory
   },
   computed: {
     getallCategory: function getallCategory() {
-      return this.$store.getCategory;
+      return this.$store.getters.getCategory; // return this.$store.getCategory
     }
   },
   methods: {}
@@ -41415,19 +41422,15 @@ var render = function() {
               _c("table", { staticClass: "table table-bordered table-hover" }, [
                 _vm._m(0),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.getallCategory, function(category, index) {
-                    return _c("tr", { key: category.id }, [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(category.name))]),
-                      _vm._v(" "),
-                      _vm._m(1, true)
-                    ])
-                  }),
-                  0
-                )
+                _c("tbody", [
+                  _c("tr", [
+                    _c("td", [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.getallCategory))]),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ])
+                ])
               ])
             ])
           ])
@@ -41445,7 +41448,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("SL")]),
         _vm._v(" "),
-        _c("th", [_vm._v("ccategory Name")]),
+        _c("th", [_vm._v("Category Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
@@ -57753,8 +57756,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // import Vue from "vue";
-// for vuex support
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // for vuex support
 
 
 Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -57764,7 +57766,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store(_store_index_
 
 
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
- // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+ // end vue router
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('admin-master', __webpack_require__(/*! ./components/admin/AdminMaster.vue */ "./resources/js/components/admin/AdminMaster.vue")["default"]); // v-form
 
@@ -57772,7 +57775,8 @@ Vue.component('admin-master', __webpack_require__(/*! ./components/admin/AdminMa
 
 window.Form = vform__WEBPACK_IMPORTED_MODULE_4__["Form"];
 Vue.component(vform__WEBPACK_IMPORTED_MODULE_4__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_4__["HasError"]);
-Vue.component(vform__WEBPACK_IMPORTED_MODULE_4__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_4__["AlertError"]); // for sweet alert2 message
+Vue.component(vform__WEBPACK_IMPORTED_MODULE_4__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_4__["AlertError"]); // end v form
+// for sweet alert2 message
 
 
 window.swal = swal;
@@ -58225,7 +58229,7 @@ __webpack_require__.r(__webpack_exports__);
     allCategory: function allCategory(context) {
       // category route ta web.php theke nia esechi. 
       // category route er mardhome category table theke all data json formate e nia esechi.
-      axios.get('/category').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/category').then(function (response) {
         // categories come from categoryController all_category method
         // console.log(response.data.categories)
         context.commit('categories', response.data.categories);

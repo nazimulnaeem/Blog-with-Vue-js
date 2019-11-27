@@ -15,14 +15,21 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>SL</th>
-                                    <th>ccategory Name</th>
+                                    <th>Category Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(category,index) in getallCategory" :key="category.id">
+                                <!-- <tr v-for="(category,index) in getallCategory" :key="category.id">
                                     <td>{{ index + 1 }}</td>
                                     <td>{{ category.name }}</td>
+                                    <td><a href="" class="fa fa-edit"></a>
+                                    <a href="" class="fa fa-trash"></a>
+                                    </td>
+                                </tr>  -->
+                                <tr>
+                                    <td>1</td>
+                                    <td>{{ getallCategory }}</td>
                                     <td><a href="" class="fa fa-edit"></a>
                                     <a href="" class="fa fa-trash"></a>
                                     </td>
@@ -37,15 +44,17 @@
     </div>
 </template>
 
-            <script>
+            <script type="text/javscript">
             export default {
                 name: "list",
                 mounted(){
-                 this.$store.dispatch("allCategory")
+                      this.$store.dispatch("allCategory")
+                // this.$store.getters.getCategory
                 },
                 computed:{
                     getallCategory(){
-                        return this.$store.getCategory
+                      return  this.$store.getters.getCategory
+                        // return this.$store.getCategory
                     }
                 },
                 methods:{

@@ -1,5 +1,4 @@
-import Axios from "axios"
-
+import axios from "axios"
 export default{
     state: {
         category:[],
@@ -28,5 +27,4 @@ export default{
         }
 
     }
-
 }
