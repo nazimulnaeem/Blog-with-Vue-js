@@ -20,20 +20,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <tr v-for="(category,index) in getallCategory" :key="category.id">
+                                <tr v-for="(category,index) in getallCategory" :key="category.id">
                                     <td>{{ index + 1 }}</td>
                                     <td>{{ category.name }}</td>
                                     <td><a href="" class="fa fa-edit"></a>
                                     <a href="" class="fa fa-trash"></a>
                                     </td>
-                                </tr>  -->
-                                <tr>
+                                </tr> 
+                                <!-- <tr>
                                     <td>1</td>
                                     <td>{{ getallCategory }}</td>
                                     <td><a href="" class="fa fa-edit"></a>
                                     <a href="" class="fa fa-trash"></a>
                                     </td>
-                                </tr>   
+                                </tr>    -->
                             </tbody>
                         </table>
                     </div>

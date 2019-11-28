@@ -10,7 +10,7 @@ export default{
     },
     actions:{
         // allCategory(state,payload){
-        allCategory(context){
+            allCategory(context){
             // category route ta web.php theke nia esechi. 
             // category route er mardhome category table theke all data json formate e nia esechi.
             axios.get('/category')

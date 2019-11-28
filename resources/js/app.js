@@ -35,7 +35,7 @@ Vue.component(AlertError.name, AlertError)
 
 // for sweet alert2 message
 import Swal from 'sweetalert2'
-window.swal = swal;
+window.swal = Swal;
 const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -47,7 +47,7 @@ const Toast = Swal.mixin({
     toast.addEventListener('mouseleave', Swal.resumeTimer)
   }
 });
-// window.toast = toast
+window.toast = Toast
 // end sweet alert2
 
 const router = new VueRouter({
