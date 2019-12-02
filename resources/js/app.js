@@ -13,11 +13,7 @@ const store = new Vuex.Store(storeData)
 // end vuex support
 
 //===== support moment js for date and time formate ======/////
-import  moment from 'moment'
-//=== vue filter for which formate we are want to show in my display. thats why i pass an argument and return moment formate
-Vue.filter('timeformate',(arg)=>{
-  return moment(arg).format("MMM Do YYYY");   
-});
+import {filter} from "./filter"
 //==== end moment js======///
 
 // vue router
@@ -55,7 +51,7 @@ const Toast = Swal.mixin({
     toast.addEventListener('mouseleave', Swal.resumeTimer)
   }
 });
-// window.toast = Toast
+// window.toast = toast
 // end sweet alert2
 
 const router = new VueRouter({

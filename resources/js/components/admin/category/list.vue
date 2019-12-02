@@ -27,7 +27,7 @@
                                     <!-- timeformate comes from app.js file for filtering time and show in formate wise -->
                                     <td>{{ category.created_at | timeformate }}</td>
                                     <td><a href="" class="fa fa-edit"></a>
-                                    <a href="" class="fa fa-trash"></a>
+                                    <a href="" @click.prevent="deleteCategory(category.id)" class="fa fa-trash"></a>
                                     </td>
                                 </tr> 
                                 <!-- <tr>
@@ -61,7 +61,16 @@
                     }
                 },
                 methods:{
-
-                }
+                    deleteCategory(id){
+                        axios.get('category/'+id)
+                        .then(()=>{
+                            this.$store.dispatch("allCategory")
+                            Toast.fire({
+                            icon: 'success',
+                            title: 'Category deleted successfully'
+                            })
+                        })
+                    }
+                    }
             }
             </script>

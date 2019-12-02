@@ -1897,7 +1897,20 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getCategory; // return this.$store.getCategory
     }
   },
-  methods: {}
+  methods: {
+    deleteCategory: function deleteCategory(id) {
+      var _this = this;
+
+      axios.get('category/' + id).then(function () {
+        _this.$store.dispatch("allCategory");
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Category deleted successfully'
+        });
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -59044,7 +59057,23 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(1, true)
+                      _c("td", [
+                        _c("a", {
+                          staticClass: "fa fa-edit",
+                          attrs: { href: "" }
+                        }),
+                        _vm._v(" "),
+                        _c("a", {
+                          staticClass: "fa fa-trash",
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.deleteCategory(category.id)
+                            }
+                          }
+                        })
+                      ])
                     ])
                   }),
                   0
@@ -59072,16 +59101,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { staticClass: "fa fa-edit", attrs: { href: "" } }),
-      _vm._v(" "),
-      _c("a", { staticClass: "fa fa-trash", attrs: { href: "" } })
     ])
   }
 ]
@@ -75368,8 +75387,7 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter */ "./resources/js/filter.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
@@ -75386,11 +75404,7 @@ Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store(_store_index__WEBPACK_IMPORTED_MODULE_1__["default"]); // end vuex support
 //===== support moment js for date and time formate ======/////
 
- //=== vue filter for which formate we are want to show in my display. thats why i pass an argument and return moment formate
-
-Vue.filter('timeformate', function (arg) {
-  return moment__WEBPACK_IMPORTED_MODULE_2___default()(arg).format("MMM Do YYYY");
-}); //==== end moment js======///
+ //==== end moment js======///
 // vue router
 
 
@@ -75419,7 +75433,7 @@ var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.mixin({
     toast.addEventListener('mouseenter', sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.stopTimer);
     toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.resumeTimer);
   }
-}); // window.toast = Toast
+}); // window.toast = toast
 // end sweet alert2
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
@@ -75793,6 +75807,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_userComponent_vue_vue_type_template_id_548d8f92___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/filter.js":
+/*!********************************!*\
+  !*** ./resources/js/filter.js ***!
+  \********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+
+ //=== vue filter for which formate we are want to show in my display. thats why i pass an argument and return moment formate
+
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.filter('timeformate', function (arg) {
+  return moment__WEBPACK_IMPORTED_MODULE_0___default()(arg).format("MMM Do YYYY");
+});
 
 /***/ }),
 
