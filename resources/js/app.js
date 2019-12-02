@@ -12,6 +12,14 @@ import storeData from "./store/index"
 const store = new Vuex.Store(storeData)
 // end vuex support
 
+//===== support moment js for date and time formate ======/////
+import  moment from 'moment'
+//=== vue filter for which formate we are want to show in my display. thats why i pass an argument and return moment formate
+Vue.filter('timeformate',(arg)=>{
+  return moment(arg).format("MMM Do YYYY");   
+});
+//==== end moment js======///
+
 // vue router
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)

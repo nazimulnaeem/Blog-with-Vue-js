@@ -24,7 +24,8 @@
                                 <tr v-for="(category,index) in getallCategory" :key="category.id">
                                     <td>{{ index + 1 }}</td>
                                     <td>{{ category.name }}</td>
-                                    <td>{{ category.created_at }}</td>
+                                    <!-- timeformate comes from app.js file for filtering time and show in formate wise -->
+                                    <td>{{ category.created_at | timeformate }}</td>
                                     <td><a href="" class="fa fa-edit"></a>
                                     <a href="" class="fa fa-trash"></a>
                                     </td>
