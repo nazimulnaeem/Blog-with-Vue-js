@@ -4,3 +4,9 @@ import Vue from 'vue'
 Vue.filter('timeformate',(arg)=>{
   return moment(arg).format("MMM Do YYYY");   
 });
+
+
+// vue filter for sortest length in post description and title 
+Vue.filter('sortlength',function(text,length,suffix){
+  return text.substring(0,length)+suffix;
+});

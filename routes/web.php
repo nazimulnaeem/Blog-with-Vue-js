@@ -22,10 +22,13 @@ Route::group(['namespace' => 'Admin'],function(){
     // Route::get('/admin-dashboard', 'PagesController@index')->name('dashboard');
     Route::get('/admin-dashboard', 'PagesController@test')->name('test');
 
-    ////====== for post route =======///////
-    Route::get('/admin-post', 'PostController@all_post')->name('admin.post');
+    ////====== start post route =======///////
+    // Route::get('/admin-post', 'PostController@all_post')->name('admin.post');
+    Route::get('/post', 'PostController@all_post');
 
-    ////====== for category route =======///////
+    //// ====== end post route ======= //////
+
+    ////====== start category route =======///////
     Route::post('/add-category', 'CategoryController@add_category');
     Route::get('/category', 'CategoryController@all_category');
     Route::get('/category/{id}', 'CategoryController@delete_category');

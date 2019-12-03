@@ -54,6 +54,18 @@
       </li>
 
       <li class="treeview ">
+         <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Post</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+         <ul class="treeview-menu">
+           <li>
+              <router-link to="/post-list" class="treeview-item" href=""><i class="icon fa fa-circle-o"></i>Post List</router-link>
+           </li>
+           <li>
+              <router-link to="/admin-post" class="treeview-item" href=""><i class="icon fa fa-circle-o"></i>Add New Post</router-link>
+           </li>
+         </ul>
+      </li>
+
+      <li class="treeview ">
          <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file"></i><span class="app-menu__label">Category</span><i class="treeview-indicator fa fa-angle-right"></i></a>
          <ul class="treeview-menu">
            <li>

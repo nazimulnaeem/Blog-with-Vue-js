@@ -1,9 +1,14 @@
 import AdminHome from './components/admin/AdminHome.vue'
 import userComp from './components/userComponent.vue'
-/// ====== for category =====///////
+/// ====== for category component =====///////
 import categoryList from './components/admin/category/list.vue'
 import addCategory from './components/admin/category/new.vue'
 import editCategory from './components/admin/category/edit.vue'
+/// ======= end category component ====== ////////
+
+/// ===== start post component ======= //////
+import postList from './components/admin/post/list.vue'
+/// ===== end post component ======= //////
 
 export const routes = [
    {
@@ -28,6 +33,14 @@ export const routes = [
      path:'/edit-category/:categoryid',
      component:editCategory
    },
+
+   //// ======= route for post ====== //////
+   {
+    path:'/post-list',
+    component:postList
+  },
+  ///// ======= end post route =========//////
+
    
   ]
   
