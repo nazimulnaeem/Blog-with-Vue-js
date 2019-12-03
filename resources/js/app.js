@@ -51,7 +51,7 @@ const Toast = Swal.mixin({
     toast.addEventListener('mouseleave', Swal.resumeTimer)
   }
 });
-// window.toast = toast
+// window.toast = Toast
 // end sweet alert2
 
 const router = new VueRouter({

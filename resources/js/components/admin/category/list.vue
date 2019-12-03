@@ -26,7 +26,9 @@
                                     <td>{{ category.name }}</td>
                                     <!-- timeformate comes from app.js file for filtering time and show in formate wise -->
                                     <td>{{ category.created_at | timeformate }}</td>
-                                    <td><a href="" class="fa fa-edit"></a>
+                                    <td>
+                                        <!-- bind korar jonno amra clone symbol ta use korteci thats mean attribute binding -->
+                                        <router-link :to="`/edit-category/${category.id}`"><a href="" class="fa fa-edit"></a></router-link>
                                     <a href="" @click.prevent="deleteCategory(category.id)" class="fa fa-trash"></a>
                                     </td>
                                 </tr> 

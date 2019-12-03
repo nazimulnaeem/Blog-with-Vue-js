@@ -26,6 +26,22 @@ class CategoryController extends Controller
         return ['message'=>'Ok'];
     }
 
+    public function edit_category($id){
+        $category = Category::find($id);
+        return response()->json([
+            'category' => $category
+        ],200);
+    }
+
+    public function update_category(Request $request, $id){
+        $this->validate($request,[
+            'name' => 'required|min:2|max:50'
+        ]);
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->save();
+    }
+
     public function delete_category($id){
         // return $id;
         $category = Category::find($id);

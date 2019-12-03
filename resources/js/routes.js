@@ -3,6 +3,7 @@ import userComp from './components/userComponent.vue'
 /// ====== for category =====///////
 import categoryList from './components/admin/category/list.vue'
 import addCategory from './components/admin/category/new.vue'
+import editCategory from './components/admin/category/edit.vue'
 
 export const routes = [
    {
@@ -21,6 +22,11 @@ export const routes = [
     {
      path:'/add-category',
      component:addCategory
+   },
+    {
+      // category id ta bind korlam category wise edit korar jonno 
+     path:'/edit-category/:categoryid',
+     component:editCategory
    },
    
   ]
