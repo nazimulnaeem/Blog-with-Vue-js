@@ -8,6 +8,8 @@ import editCategory from './components/admin/category/edit.vue'
 
 /// ===== start post component ======= //////
 import postList from './components/admin/post/list.vue'
+import addPost from './components/admin/post/create.vue'
+import editPost from './components/admin/post/edit.vue'
 /// ===== end post component ======= //////
 
 export const routes = [
@@ -38,6 +40,14 @@ export const routes = [
    {
     path:'/post-list',
     component:postList
+  },
+   {
+    path:'/add-post',
+    component:addPost
+  },
+   {
+    path:'/post-edit/:postid',
+    component:editPost
   },
   ///// ======= end post route =========//////
 

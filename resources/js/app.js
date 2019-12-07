@@ -12,6 +12,13 @@ import storeData from "./store/index"
 const store = new Vuex.Store(storeData)
 // end vuex support
 
+// editor support for textarea
+import 'v-markdown-editor/dist/index.css';
+import Editor from 'v-markdown-editor'
+// global register
+Vue.use(Editor);
+// end editor support
+
 //===== support moment js for date and time formate ======/////
 import {filter} from "./filter"
 //==== end moment js======///

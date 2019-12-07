@@ -5,9 +5,9 @@
                 <div class="col-md-12">
                     <div class="card">
                     <div class="header">
-                        <h2 class="card-title">Post List</h2>
+                        <h2 class="card-title ml-2">Post List</h2>
                         <div class="card-tools ml-2">
-                            <router-link to="/admin-post" style="color:#fff"><button class="btn btn-primary btn-sm">Add Post</button></router-link>
+                            <router-link to="/add-post" style="color:#fff"><button class="btn btn-primary btn-sm">Add New Post</button></router-link>
                         </div>
                     </div>
                     <div class="card-body">
@@ -30,11 +30,12 @@
                                     <td v-if="post.category">{{ post.category.name }}</td>
                                     <td>{{post.title | sortlength(20,"....")}}</td>
                                     <td>{{post.description | sortlength(35,"....")}}</td>
-                                    <td><img :src="post.image" alt="" width="50" height="50"></td>
+                                    <!-- <td><img :src="postImage(post.image)" alt="" width="50" height="50"></td> -->
+                                    <td><img :src="postImage(post.image)" alt="" width="50" height="50"></td>
                                     <td>
                                         <!-- bind korar jonno amra clone symbol ta use korteci thats mean attribute binding -->
-                                        <a href="" class="fa fa-edit"></a>
-                                    <a href="" class="fa fa-trash"></a>
+                                       <router-link :to="`/post-edit/${post.id}`"> <a href="" class="fa fa-edit"></a></router-link>
+                                    <a href="" @click.prevent="PostDelete(post.id)" class="fa fa-trash"></a>
                                     </td>
                                 </tr> 
                             </tbody>
@@ -47,19 +48,34 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: "list",
-    mounted(){
-        this.$store.dispatch("getAllPost")
-    },
-    computed:{
-        getallpost(){
-           return this.$store.getters.getpost
-        }
-    },
-    methods:{
-
-    }
-}
-</script>>
+            <script>
+            export default {
+                name: "list",
+                mounted(){
+                    this.$store.dispatch("getAllPost")
+                },
+                computed:{
+                    getallpost(){
+                    return this.$store.getters.getpost
+                    }
+                },
+                methods:{
+                    postImage(image){
+                        return "images/post/"+image;
+                    },
+                    PostDelete(id){
+                        axios.get(`/post_delete/`+id)
+                        .then(() => {
+                             this.$store.dispatch("getAllPost")
+                                swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Post delete Successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                                })
+                        })
+                    }
+                }
+            }
+            </script>>

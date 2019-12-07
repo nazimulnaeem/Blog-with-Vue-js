@@ -12,19 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.master');
 });
 
 Auth::routes();
 
 
-Route::group(['namespace' => 'Admin'],function(){
+Route::group(['namespace' => 'Admin','middleware'=>['auth']],function(){
     // Route::get('/admin-dashboard', 'PagesController@index')->name('dashboard');
     Route::get('/admin-dashboard', 'PagesController@test')->name('test');
 
     ////====== start post route =======///////
     // Route::get('/admin-post', 'PostController@all_post')->name('admin.post');
     Route::get('/post', 'PostController@all_post');
+    Route::post('/add-post', 'PostController@post_insert');
+    Route::get('/post-edit/{id}', 'PostController@post_edit');
+    Route::post('/post-update/{id}', 'PostController@post_update');
+    Route::get('/post_delete/{id}', 'PostController@post_delete');
 
     //// ====== end post route ======= //////
 

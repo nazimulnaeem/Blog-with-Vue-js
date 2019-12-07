@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/')}}/css/main.css">
 <!-- Font-icon css-->
 <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/')}}/maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 
 <script type="text/javascript" src="{{asset('admin/assets/')}}/js/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/')}}/css/sweetalert.min.css">

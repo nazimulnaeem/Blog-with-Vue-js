@@ -17,7 +17,7 @@
             <div class="form-group row ml-2">
                 <div class="col-md-2"></div>
                     <div class="col-sm-8">
-                <button type="submit" class="btn btn-primary">UPdate</button>
+                <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </div>
             </form>
