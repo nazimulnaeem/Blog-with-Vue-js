@@ -12,6 +12,16 @@ import addPost from './components/admin/post/create.vue'
 import editPost from './components/admin/post/edit.vue'
 /// ===== end post component ======= //////
 
+
+
+/// ========== For Frontend component ============ ////
+import publicHome from './components/public/PublicHome.vue'
+import blogPost from './components/public/blog/BlogPost.vue'
+import SinglePost from './components/public/blog/SingleBlog.vue'
+
+
+
+
 export const routes = [
    {
      path:'/admin-dashboard',
@@ -50,6 +60,23 @@ export const routes = [
     component:editPost
   },
   ///// ======= end post route =========//////
+
+
+
+
+  //========= Frontend route ============
+  {
+    path:'/front-page',
+    component:publicHome
+  },
+  {
+    path:'/blog',
+    component:blogPost
+  },
+  {
+    path:'/single-post/:id',
+    component:SinglePost
+  },
 
    
   ]

@@ -3,6 +3,11 @@ export default{
     state: {
         category:[],
         post:[],
+
+
+        ///====== state for frontend ======= ///
+        BlogPost:[],
+        SinglePost:[],
     },
 
 
@@ -14,7 +19,17 @@ export default{
         // method for post 
         getpost(state){
             return state.post
+        },
+
+
+        /// ======== getters for frontend =========== ////
+        BlogPost(state){
+            return state.BlogPost
+        },
+        SinglePost(state){
+            return state.SinglePost
         }
+
     },
 
 
@@ -39,7 +54,24 @@ export default{
                 console.log(response.data)
                 context.commit('allposts',response.data.posts)
             })
+        },
+
+
+        ///// ======= action for frontend ========= ////
+        getBlogPost(context){
+            axios.get('/blog-post')
+            .then((response)=>{
+                context.commit('blogposts',response.data.posts)
+            })
+        },
+        SingleBlogPost(context,payload){
+            axios.get('/single-post/'+payload)
+            .then((response)=>{
+                context.commit('Single_Blog_Post',response.data.post)
+            })
         }
+
+
     },
 
 
@@ -49,8 +81,17 @@ export default{
         },
 
         // method come from action commit first parameter.
-        allposts(state,data){
+        blogposts(state,data){
             return state.post = data
+        },
+        
+
+        /// ======== mutation for frontend ======== //////
+        blogposts(state,data){
+            return state.BlogPost = data
+        },
+        Single_Blog_Post(state,data){
+            return state.SinglePost = data
         }
 
     }

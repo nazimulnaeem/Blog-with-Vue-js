@@ -18,6 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 
+// Route::get('/home_page', 'Frontend\PagesController@front_page');
+
+
+Route::group(['namespace' => 'Frontend'],function(){
+    Route::get('/blog-post', 'BlogController@get_all_blog_post');
+    Route::get('/single-post/{id}', 'BlogController@get_single_post');
+
+});
+
+
+
 Route::group(['namespace' => 'Admin','middleware'=>['auth']],function(){
     // Route::get('/admin-dashboard', 'PagesController@index')->name('dashboard');
     Route::get('/admin-dashboard', 'PagesController@test')->name('test');

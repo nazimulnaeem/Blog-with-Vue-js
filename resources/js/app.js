@@ -34,6 +34,7 @@ import {routes} from './routes';
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-master', require('./components/admin/AdminMaster.vue').default);
+Vue.component('home-page', require('./components/public/PublicMaster.vue').default);
 
 // v-form
 
